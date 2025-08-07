@@ -7,12 +7,12 @@ use App\Models\Students;
 
 class StudentsController extends Controller
 {
-    public function add(){
+    public function add(Request $request){
         Students::create([
-            'name' => 'Kyle',
-            'email' => 'kyle@gmail.com',
-            'age' => 20,
-            'contact_no' => '09123456789',
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'age' => $request->input('age'),
+            'contact_no' => $request->input('contact_no'),
         ]);
         return Students::all();
     }

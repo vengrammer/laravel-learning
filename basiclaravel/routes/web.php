@@ -6,8 +6,12 @@ use App\Http\Controllers\TestingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentsController;
 
-Route::get('/add', [StudentsController::class, 'add']);
-Route::get('/show', [StudentsController::class, 'show']);
+Route::get('/', function () {
+    return view('Home');
+});
+
+Route::post('/add', [StudentsController::class, 'add'])->name('add');
+Route::get('/show', [StudentsController::class, 'show'])->name('show');
 Route::get('/update', [StudentsController::class, 'update']);
 Route::get('/del', [StudentsController::class, 'del']);
 Route::get('/count', [StudentsController::class, 'count']);
@@ -18,3 +22,12 @@ Route::get('/post/{title}/{body}', [PostController::class, 'post']);
 Route::get('/comments', [PostController::class, 'comments']);
 
 Route::get('/comment/{post_id}/{comment}', [CommentController::class, 'comment']);
+
+
+Route::get('/testing', function (){
+    return view('insert');
+});
+
+Route::post('/try', function(){
+    return redirect('/');
+})->name('try');
