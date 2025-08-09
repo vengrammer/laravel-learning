@@ -31,3 +31,5 @@ Route::get('/testing', function (){
 Route::post('/try', function(){
     return redirect('/');
 })->name('try');
+
+Route::get('/tried', [TestingController::class, 'try']);
